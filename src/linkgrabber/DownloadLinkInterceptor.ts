@@ -91,10 +91,19 @@ export abstract class DownloadLinkInterceptor {
 
     protected isInRegisteredFileFormats(fileExtension: string) {
         const extension = fileExtension.toLowerCase()
-        if (!Configs.getLatestConfig().registeredFileTypes.includes(extension)) {
-            return false
-        }
-        return true
+
+        let isMatch = false
+        Configs.getLatestConfig().registeredFileTypes.forEach((str, index, array) => {
+            let regStr = new RegExp(str)
+            if (regStr.test(extension)) {
+                // console.log('[%s] match [%s]', str, extension)
+                isMatch = true
+            }
+            // else {
+                // console.log('[%s] not match [%s]', str, extension)
+            // }
+        })
+        return isMatch
     }
 
     protected shouldHandleRequest(details: WebRequest.OnHeadersReceivedDetailsType) {
