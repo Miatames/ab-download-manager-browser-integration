@@ -127,5 +127,14 @@
   },
   "abdm_notification_download_captured_silently": {
     "message": "Download captured silently"
+  },
+  "download_media_title": {
+    "message": "Download With ABDM"
+  },
+  "config_capture_file_size_limit_kb": {
+    "message": "Capture file size minimum (KB)"
+  },
+  "config_capture_file_size_limit_kb_description": {
+    "message": "Only capture files with size greater than or equal to this value in kilobytes. Set 0 to capture all sizes."
   }
 }
